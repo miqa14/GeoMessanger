@@ -1,0 +1,41 @@
+<div class="row auth-row">
+    <div class="col z-depth-2 auth-box">
+        <div class="col s6 auth-image-box">
+            <img src="/image/auth_pic.jpg" class="auth-image">
+        </div>
+
+        <div class="col s6">
+            <form action="/auth/login" method="POST">
+                <h4 class="center-alight auth-form-title">Login form</h4>
+                
+                {{#if error}}
+                    <div class="error-flash-container z-depth-2 col s10 offset-s1">
+                        <p class="error-flash-text center-alight">{{error}}</p>
+                    </div>
+                {{/if}}
+
+                {{#if info}}
+                    <div class="info-flash-container z-depth-2 col s10 offset-s1">
+                        <p class="info-flash-text center-alight">{{info}}</p>
+                    </div>
+                {{/if}}
+
+                <div class="input-field col s10 offset-s1">
+                    <input id="email" type="email" name="email">
+                    <label for="email">Email</label>
+                </div>
+
+                <div class="input-field col s10 offset-s1">
+                    <input id="password" type="password" name="password">
+                    <label for="password">password</label>
+                </div>
+
+                <button type="submit" class="btn-large waves-effect waves-light grey darken-3 submit-button">
+                    Login
+                    <i class="material-icons right">send</i>
+                </button>
+
+            </form>
+        </div>
+    </div>
+</div>

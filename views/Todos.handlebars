@@ -1,0 +1,48 @@
+<div class="todos-container">
+{{#if error}}
+    <div class="error-flash-container z-depth-2 col s10 offset-s1">
+        <p class="error-flash-text center-alight">{{error}}</p>
+    </div>
+{{/if}}
+
+{{#each todoData}}
+    <ul class="messageList">
+        <form action="/todos/delete" method="POST">
+            <li class="message">
+            <img class="circle logo-img" src="/image/uploads/{{this.photo}}"> {{this.MessageOwner}} : <span class="brk">{{this.msg}}</span>
+            </li>
+        </form>
+    </ul>
+{{/each}}
+
+
+
+
+    <a href="#create-todo-modal" class="btn-floating btn-large waves-effect waves-light blue upload-absolute-button pulse modal-trigger">
+        <i class="material-icons">add</i>
+    </a>
+</div>
+  <!-- Modal Structure -->
+  <div id="create-todo-modal" class="modal">
+    <div class="modal-content">
+        <div class="box">
+            <form id="todoForm" action="/todos/{{product._id}}" method="POST">
+                <input type="text" id="todoInput" placeholder="  Aa" name="msg">
+                <button type="submit" class="btn">Send</button>
+            </form>
+        </div>
+    </div>
+  </div>
+
+
+
+
+<style>
+.brk{
+    margin-left: 8%;
+    display: block;
+    word-wrap:break-word;
+    width: 100px;
+    white-space: normal
+}
+</style>

@@ -1,0 +1,74 @@
+<nav>
+    <div class="nav-wrapper blue main-navbar">
+      <a href="/auth/home" class="brand-logo {{#if isAuth}}center{{/if}} navbar-title"><i class="material-icons left">add_to_home_screen</i>Message Application</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        {{#if isAuth}}
+
+        {{else}}
+                {{#if isRegistration}}
+                    <li class="active"><a class="waves-effect" href="/auth/registration"><i class="material-icons left">how_to_reg</i>Registration</a></li>
+                {{else}}
+                    <li><a class="waves-effect" href="/auth/registration"><i class="material-icons left">how_to_reg</i>Registration</a></li>
+                {{/if}}
+
+                {{#if isLogin}}
+                    <li class="active"><a class="waves-effect" href="/auth/login"><i class="material-icons left">login</i>Login</a></li>
+                {{else}}
+                    <li><a class="waves-effect" href="/auth/login"><i class="material-icons left">login</i>Login</a></li>
+                {{/if}}
+
+        {{/if}}
+      </ul>
+    </div>
+</nav>
+
+<ul class="sidenav {{#if isAuth}}sidenav-fixed{{/if}}" id="mobile-demo">
+    {{#if isAuth}}
+
+    <div class="user-view">
+      <div class="background">
+        <img src="/image/office.jpg">
+      </div>
+    <a href="#!"><img class="circle" src="/image/uploads/{{user.photo}}"></a>
+        <a href="#!"><span class="white-text name">{{user.first_name}} {{user.last_name}}</span></a>
+        <a href="#!"><span class="white-text email">{{user.email}}</span></a>
+    </div>
+        {{#if isTodos}}
+            <li class="active"><a class="waves-effect" href="/todos">
+            <i class="material-icons">list</i>
+            Todos</a></li>
+        {{else}}
+            <li><a class="waves-effect" href="/todos">
+            <i class="material-icons">list</i>
+            Todos</a></li>
+        {{/if}}
+
+        {{#if isUpdateUser}}
+            <li class="active"><a class="waves-effect" href="/user/update">
+            <i class="material-icons">account_circle</i>
+            My Information</a></li>
+        {{else}}
+            <li><a class="waves-effect" href="/user/update">
+            <i class="material-icons">account_circle</i>
+            My Information</a></li>
+        {{/if}}
+
+            <li><a class="waves-effect" href="/auth/logout"><i class="material-icons">logout</i>Logout</a></li>
+
+        {{else}}
+
+            {{#if isRegistration}}
+                <li class="active"><a class="waves-effect" href="/auth/registration"><i class="material-icons">how_to_reg</i>Registration</a></li>
+            {{else}}
+                <li><a class="waves-effect" href="/auth/registration"><i class="material-icons">how_to_reg</i>Registration</a></li>
+            {{/if}}
+
+            {{#if isLogin}}
+            <li class="active"><a class="waves-effect" href="/auth/login"><i class="material-icons">login</i>Login</a></li>
+            {{else}}
+                <li><a class="waves-effect" href="/auth/login"><i class="material-icons">login</i>Login</a></li>
+            {{/if}}
+
+        {{/if}}
+</ul>

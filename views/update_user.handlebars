@@ -1,0 +1,50 @@
+<div class="row auth-row">
+    <div class="col z-depth-2 auth-box">
+        <div class="col s6 auth-image-box">
+            <img src="/image/auth_pic.jpg" class="auth-image">
+        </div>
+
+        <div class="col s6">
+            <form action="/user/update" method="POST">
+                <h4 class="center-alight auth-form-title">Regsitration form</h4>
+
+                {{#if error}}
+                    <div class="error-flash-container z-depth-2 col s10 offset-s1">
+                        <p class="error-flash-text center-alight">{{error}}</p>
+                    </div>
+                {{/if}}
+
+                {{#if info}}
+                    <div class="info-flash-container z-depth-2 col s10 offset-s1">
+                        <p class="info-flash-text center-alight">{{info}}</p>
+                    </div>
+                {{/if}}
+                <div class="input-field col s10 offset-s1">
+                    <input id="first_name" type="text" name="first_name" value="{{user.first_name}}">
+                    <label for="first_name">First name</label>
+                </div>
+                
+                <div class="input-field col s10 offset-s1">
+                    <input id="last_name" type="text" name="last_name" value="{{user.last_name}}">
+                    <label for="last_name">Last name</label>
+                </div>
+
+                <div class="input-field col s10 offset-s1">
+                    <input id="birth_date" type="text" class="datepicker" name="birth_date" value="{{user.birth_date}}">
+                    <label for="birth_date">Birth date</label>
+                </div>
+
+                <div class="input-field col s10 offset-s1">
+                    <input id="email" type="email" name="email" value="{{user.email}}" disabled>
+                    <label for="email">Email</label>
+                </div>
+
+                <button type="submit" class="btn-large waves-effect waves-light grey darken-3 submit-button" style="margin-bottom: 30px;">
+                    Update Information
+                    <i class="material-icons right">send</i>
+                </button>
+
+            </form>
+        </div>
+    </div>
+</div>

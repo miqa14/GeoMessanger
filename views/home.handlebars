@@ -1,0 +1,25 @@
+{{#if error}}
+    <div class="error-flash-container z-depth-2 col s10 offset-s1">
+        <p class="error-flash-text center-alight">{{error}}</p>
+    </div>
+{{/if}}
+
+<div class="create-lobby">
+    <form action="/auth/home" method="POST">
+        <input type="text" name="lobby">
+        <button class="btn-small">Create</button>
+    </form>
+</div>
+
+{{#each lobbyData}}
+<a href="/todos/{{this._id}}">
+    <li class="todo" style="list-style: none;">
+        <label>
+            <img class="circle lobby-img" src="/image/uploads/{{this.lobby_owner}}">
+            <h5 class="lobby-name">{{this.lobby}}</h5>
+            <input type="hidden" value="{{this._id}}" name="id">
+        </label>
+    </li>
+</a>
+{{/each}}
+
